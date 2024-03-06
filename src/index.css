@@ -1,3 +1,209 @@
-#aapki-nazar{
-    margin: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family: var(--roboto);
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --light--gray: #F2F2F2;
+    --light--blue: #3D8BF2;
+    --dark--blue: #3D46F2;
+    --pink: #F24BA7;
+    --maroon: #8C030E;
+
+    --roboto: "Roboto", sans-serif;
+    --italiana: "Italiana", sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    position:fixed;
+    top: 0;bottom: 0;left:0;right: 0;
+    overflow-x: hidden;
+}
+
+
+/* header ----------------------------------------------------------- */
+.header--wrapper{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    position: relative;z-index: 1000;
+    top: 0;right: 0;left: 0;
+    box-shadow: 0 0.3rem 1rem var(--light--gray);
+    padding: 2rem;
+    padding-left: 11rem;
+    padding-right: 11rem;
+}
+
+.header--wrapper .header--elements{
+    margin-left: 3rem;
+}
+
+.header--wrapper div.heading--name{
+    font-family: var(--italiana);
+    font-size: 3rem;
+}
+
+.header--wrapper .the-search-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 18rem;
+    background-color: var(--light--blue);
+}
+
+.header--wrapper .the-search-section .header--searchBar{
+    margin: 0.1rem;
+    padding: 1rem;
+    width: 50rem;
+}
+
+
+.header--wrapper .the-search-section .search--icon{
+    margin:0 1.5rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.header--wrapper .heading--product{
+    margin-left: auto;
+    font-weight: bolder;
+}
+
+.header--wrapper .cart--count--absolute{
+    text-align: center;
+    background-color: var(--maroon);
+    color: white;
+    border-radius: 50%;
+    /* padding: 0.5rem; */
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 1.5rem;
+    position:absolute;
+    right: 10rem;
+    top: 2rem;
+}
+
+
+/*main--------------------------------------------*/
+
+.app--wrapper{
+    
+    height: 100vh;
+    overflow-y: auto;
+}
+
+main.main--wrapper{
+    width: 82.5%;
+    margin: auto;
+    display: flex;
+}
+
+.main--wrapper .categories--wrapper{
+    /* background-color: #3D46F2; */
+    padding:5rem 5rem;
+    
+    height: 100vh;
+}
+
+.main--wrapper .categories--wrapper .categories--title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.main--wrapper .categories--wrapper .categories--list{
+    list-style-type: none;
+}
+
+.main--wrapper .categories--wrapper .categories--list--items{
+    font-size: 1.6rem;
+    margin-top: 0.8rem;
+}
+
+.product--section{
+    padding:1rem 0;
+    flex: 1;
+}
+
+
+.product--section .product--section--head{
+    padding: 2rem 0.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #3D46F2; */
+    font-size: 2rem;
+}
+
+.product--section .product--section--head select{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+/* display all products */
+
+.allProducts--Outlet--wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 32rem));
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+div.product--section--head{
+    grid-column: 1/-1;
+}
+
+.product--item--wrapper{
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid darkgray;
+    /* justify-content: space-around; */
+    /* height: 40rem; */
+}
+
+.product--item--wrapper .product--image--wrapper{
+    height: 22rem;
+    margin: auto;
+}
+
+.product--item--wrapper .product--item--image{
+    max-width: 100%;
+    height: 100%;
+}
+
+.product--item--details{
+    border-top: 0.1rem solid darkgray;
+    flex: 1;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    
+}
+
+.product--item--details .product--detail--i{
+    margin-top: 0.4rem;
+}
+
+.product--item--details .product--category{
+    color: darkgray;
+}
+
+.product--item--details .product--title{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.product--item--details .product--price{
+    color: var(--light--blue);
+    font-size: 2rem;
+}
+.product--item--details .product--discount--price s{
+    color: darkgray;
+}
+
+.product--item--details .product--discount--price span{
+    font-weight: bold;
 }
