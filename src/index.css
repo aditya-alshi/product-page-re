@@ -122,6 +122,11 @@ main.main--wrapper{
 .main--wrapper .categories--wrapper .categories--list--items{
     font-size: 1.6rem;
     margin-top: 0.8rem;
+    cursor: pointer;
+}
+
+.main--wrapper .categories--wrapper .categories--list--items:hover{
+    color: var(--light--blue);
 }
 
 .product--section{
@@ -144,7 +149,7 @@ main.main--wrapper{
     border-radius: 0.5rem;
 }
 
-/* display all products */
+/* display all products----------------------------------------------------------------------- */
 
 .allProducts--Outlet--wrapper{
     display: grid;
