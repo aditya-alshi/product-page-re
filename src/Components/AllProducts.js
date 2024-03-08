@@ -4,7 +4,12 @@ import { useOutletContext } from "react-router-dom";
 
 export default function AllProducts() {
   
-  const products = useOutletContext();
+  // const [products, setProducts] = React.useState(useOutletContext()) 
+  const [products, handlePriceSelect] = useOutletContext()
+  // console.log(finalProducts, "hello")
+
+
+
 
   const renderProducts = products.map((product) => (
     <div key={product.id} className="product--item--wrapper">
@@ -39,11 +44,14 @@ export default function AllProducts() {
     </div>
   ));
 
+
+  
+
   return (
     <div className="allProducts--Outlet--wrapper">
       <div className="product--section--head">
         <span>Product &nbsp; &lt; &nbsp; {"lighthing"}</span>
-        <select name="prices" id="prices" className="select--price">
+        <select onChange={handlePriceSelect} name="prices" id="prices" className="select--price">
           <option value="">Default</option>
           <option value="low-to-high">Price (low-to-high)</option>
           <option value="high-to-low">Price (high-to-low)</option>

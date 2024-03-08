@@ -6,35 +6,68 @@ import { CiSearch } from "react-icons/ci";
 
 export default function App() {
   const [products, setProducts] = React.useState([]);
-  const [filteredProducts, setFilteredProducts] = React.useState("all");
-
-  function handleCategoryClick(event) {
-    const productname = event.target.getAttribute("name");
-    console.log(productname);
-    setFilteredProducts(productname);
-  }
-  const finalProducts = products.filter(
-    (product) => product.category === filteredProducts
-  );
-
+  const [category, setCategory] = React.useState("all");
+  
+  const finalProductArray = products.filter(product=>product.category === category)
+  
   React.useEffect(() => {
     const callfecth = async () => {
       try {
         const res = await fetch(
-          "https://dummyjson.com/products?limit=100&select=title,price,brand,category,thumbnail,images,discountPercentage"
+          "https://dummyjson.com/products?limit=100&select=title,price,brand,category,thumbnail,images,discountPercentage,id"
         );
-
+  
         const jsonConverted = await res.json();
         const data = jsonConverted.products;
-        console.log(data);
+        // console.log(data);
         setProducts(data);
       } catch (err) {
         console.log(err);
       }
     };
-
+  
     callfecth();
   }, []);
+  
+  function handleCategoryClick(event) {
+    const categoryName = event.target.getAttribute('name');
+    setCategory(categoryName);
+    // copy pasted default switch case from handlePriceSelect function
+    // and manipulated select element to change to index 0
+    setProducts([...products].sort((a,b)=>a.id - b.id))
+    document.querySelector('.select--price').selectedIndex=0;
+  }
+
+  function handlePriceSelect(event){
+    const selectedValue = event.target.value;
+    switch(selectedValue){
+      case "low-to-high":
+        setProducts([...products].sort((a,b)=>{
+          const aDiscountedPrice = a.price -
+          a.price * (a.discountPercentage / 100)
+          const bDisCountedPrice = b.price -
+          b.price * (b.discountPercentage / 100)
+          return aDiscountedPrice - bDisCountedPrice;
+        }))
+        break;
+
+      case "high-to-low":
+        setProducts([...products].sort((a,b)=>{
+          const aDiscountedPrice = a.price -
+          a.price * (a.discountPercentage / 100)
+          const bDisCountedPrice = b.price -
+          b.price * (b.discountPercentage / 100)
+          return bDisCountedPrice - aDiscountedPrice;
+        }))
+        break;
+
+      default:
+        setProducts([...products].sort((a,b)=>a.id - b.id))
+    }
+  }
+  
+
+
 
   return (
     <div className="app--wrapper">
@@ -209,7 +242,7 @@ export default function App() {
         </aside>
         <div className="product--section">
           <Outlet
-            context={filteredProducts === "all" ? products : finalProducts}
+            context={[category === "all"?products:finalProductArray, handlePriceSelect]}
           />
         </div>
       </main>
