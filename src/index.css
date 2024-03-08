@@ -144,6 +144,11 @@ main.main--wrapper{
     font-size: 2rem;
 }
 
+#listing--category--heading{
+    margin-right: auto;
+    font-weight: bold;
+}
+
 .product--section .product--section--head select{
     padding: 0.5rem;
     border-radius: 0.5rem;

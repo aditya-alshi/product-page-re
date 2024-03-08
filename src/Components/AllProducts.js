@@ -3,13 +3,8 @@ import { IoCartOutline } from "react-icons/io5";
 import { useOutletContext } from "react-router-dom";
 
 export default function AllProducts() {
-  
-  // const [products, setProducts] = React.useState(useOutletContext()) 
+
   const [products, handlePriceSelect] = useOutletContext()
-  // console.log(finalProducts, "hello")
-
-
-
 
   const renderProducts = products.map((product) => (
     <div key={product.id} className="product--item--wrapper">
@@ -44,13 +39,10 @@ export default function AllProducts() {
     </div>
   ));
 
-
-  
-
   return (
     <div className="allProducts--Outlet--wrapper">
       <div className="product--section--head">
-        <span>Product &nbsp; &lt; &nbsp; {"lighthing"}</span>
+        <span>Product &nbsp; &lt; &nbsp;</span><span id="listing--category--heading"></span>
         <select onChange={handlePriceSelect} name="prices" id="prices" className="select--price">
           <option value="">Default</option>
           <option value="low-to-high">Price (low-to-high)</option>

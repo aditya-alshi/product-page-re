@@ -19,7 +19,6 @@ export default function App() {
   
         const jsonConverted = await res.json();
         const data = jsonConverted.products;
-        // console.log(data);
         setProducts(data);
       } catch (err) {
         console.log(err);
@@ -30,12 +29,17 @@ export default function App() {
   }, []);
   
   function handleCategoryClick(event) {
+
+    // send the category innerText to dynamic string in AllProducts
+    const categoryInnerText = event.target.innerHTML
+
     const categoryName = event.target.getAttribute('name');
     setCategory(categoryName);
     // copy pasted default switch case from handlePriceSelect function
     // and manipulated select element to change to index 0
     setProducts([...products].sort((a,b)=>a.id - b.id))
     document.querySelector('.select--price').selectedIndex=0;
+    document.querySelector('#listing--category--heading').innerHTML = categoryInnerText;
   }
 
   function handlePriceSelect(event){
@@ -65,9 +69,6 @@ export default function App() {
         setProducts([...products].sort((a,b)=>a.id - b.id))
     }
   }
-  
-
-
 
   return (
     <div className="app--wrapper">
