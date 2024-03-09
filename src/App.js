@@ -7,6 +7,7 @@ import { CiSearch } from "react-icons/ci";
 export default function App() {
   const [products, setProducts] = React.useState([]);
   const [category, setCategory] = React.useState("all");
+  const [selectedCategory, setSelectedCatedgory] = React.useState('all');
   
   const finalProductArray = products.filter(product=>product.category === category)
   
@@ -28,10 +29,14 @@ export default function App() {
     callfecth();
   }, []);
   
+  
   function handleCategoryClick(event) {
 
-    // send the category innerText to dynamic string in AllProducts
+    // send the category innerText to dynamic string in AllProducts span with id #listing--category--heading
     const categoryInnerText = event.target.innerHTML
+    const categoryInfo = event.target
+    
+
 
     const categoryName = event.target.getAttribute('name');
     setCategory(categoryName);
@@ -40,6 +45,7 @@ export default function App() {
     setProducts([...products].sort((a,b)=>a.id - b.id))
     document.querySelector('.select--price').selectedIndex=0;
     document.querySelector('#listing--category--heading').innerHTML = categoryInnerText;
+    
   }
 
   function handlePriceSelect(event){
@@ -93,147 +99,147 @@ export default function App() {
           <p className="categories--title">Categoies</p>
           <ul className="categories--list">
             <li
-              className="categories--list--items item--1"
               name="all"
+              className={`categories--list--items ${category === "all"? "sky--blue":""} item--1`}
               onClick={handleCategoryClick}
             >
               allProducts
             </li>
             <li
-              className="categories--list--items item--1"
+              className={`categories--list--items ${category === "smartphones"? "sky--blue":""} item--1`}
               name="smartphones"
               onClick={handleCategoryClick}
             >
               smartphones
             </li>
             <li
-              className="categories--list--items item--2"
+              className={`categories--list--items ${category === "laptops"? "sky--blue":""} item--2`}
               name="laptops"
               onClick={handleCategoryClick}
             >
               laptops
             </li>
             <li
-              className="categories--list--items item--3"
+              className={`categories--list--items ${category === "fragrances"? "sky--blue":""} item--3`}
               name="fragrances"
               onClick={handleCategoryClick}
             >
               fragrances
             </li>
             <li
-              className="categories--list--items item--4"
+              className={`categories--list--items ${category === "skincare"? "sky--blue":""} item--4`}
               name="skincare"
               onClick={handleCategoryClick}
             >
               skincare
             </li>
             <li
-              className="categories--list--items item--5"
+              className={`categories--list--items ${category === "groceries"? "sky--blue":""} item--5`}
               name="groceries"
               onClick={handleCategoryClick}
             >
               groceries
             </li>
             <li
-              className="categories--list--items item--6"
+              className={`categories--list--items ${category === "home-decoration"? "sky--blue":""} item--6`}
               name="home-decoration"
               onClick={handleCategoryClick}
             >
               home-decoration
             </li>
             <li
-              className="categories--list--items item--7"
+              className={`categories--list--items ${category === "furniture"? "sky--blue":""} item--7`}
               name="furniture"
               onClick={handleCategoryClick}
             >
               furniture
             </li>
             <li
-              className="categories--list--items item--8"
+              className={`categories--list--items ${category === "tops"? "sky--blue":""} item--8`}
               name="tops"
               onClick={handleCategoryClick}
             >
               tops
             </li>
             <li
-              className="categories--list--items item--9"
+              className={`categories--list--items ${category === "womens-dresses"? "sky--blue":""} item--9`}
               name="womens-dresses"
               onClick={handleCategoryClick}
             >
               womens-dresses
             </li>
             <li
-              className="categories--list--items item--10"
+              className={`categories--list--items ${category === "womens-shoes"? "sky--blue":""} item--10`}
               name="womens-shoes"
               onClick={handleCategoryClick}
             >
               womens-shoes
             </li>
             <li
-              className="categories--list--items item--11"
+              className={`categories--list--items ${category === "mens-shirts"? "sky--blue":""} item--11`}
               name="mens-shirts"
               onClick={handleCategoryClick}
             >
               mens-shirts
             </li>
             <li
-              className="categories--list--items item--12"
+              className={`categories--list--items ${category === "mens-shoes"? "sky--blue":""} item--12`}
               name="mens-shoes"
               onClick={handleCategoryClick}
             >
               mens-shoes
             </li>
             <li
-              className="categories--list--items item--13"
+              className={`categories--list--items ${category === "mens-watches"? "sky--blue":""} item--13`}
               name="mens-watches"
               onClick={handleCategoryClick}
             >
               mens-watches
             </li>
             <li
-              className="categories--list--items item--14"
+              className={`categories--list--items ${category === "womens-watches"? "sky--blue":""} item--14`}
               name="womens-watches"
               onClick={handleCategoryClick}
             >
               womens-watches
             </li>
             <li
-              className="categories--list--items item--15"
+              className={`categories--list--items ${category === "womens-bags"? "sky--blue":""} item--15`}
               name="womens-bags"
               onClick={handleCategoryClick}
             >
               womens-bags
             </li>
             <li
-              className="categories--list--items item--16"
+              className={`categories--list--items ${category === "womens-jewellery"? "sky--blue":""} item--16`}
               name="womens-jewellery"
               onClick={handleCategoryClick}
             >
               womens-jewellery
             </li>
             <li
-              className="categories--list--items item--17"
+              className={`categories--list--items ${category === "sunglasses"? "sky--blue":""} item--17`}
               name="sunglasses"
               onClick={handleCategoryClick}
             >
               sunglasses
             </li>
             <li
-              className="categories--list--items item--18"
+              className={`categories--list--items ${category === "automotive"? "sky--blue":""} item--18`}
               name="automotive"
               onClick={handleCategoryClick}
             >
               automotive
             </li>
             <li
-              className="categories--list--items item--19"
+              className={`categories--list--items ${category === "motorcycle"? "sky--blue":""} item--19`}
               name="motorcycle"
               onClick={handleCategoryClick}
             >
               motorcycle
             </li>
             <li
-              className="categories--list--items item--20"
+              className={`categories--list--items ${category === "lighting"? "sky--blue":""} item--20`}
               name="lighting"
               onClick={handleCategoryClick}
             >

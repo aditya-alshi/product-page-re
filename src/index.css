@@ -125,7 +125,17 @@ main.main--wrapper{
     cursor: pointer;
 }
 
+.sky--blue{
+    color: #3D8BF2;
+}
+
+
+
 .main--wrapper .categories--wrapper .categories--list--items:hover{
+    color: var(--light--blue);
+}
+
+.main--wrapper .categories--wrapper .categories--list--items:focus-within{
     color: var(--light--blue);
 }
 

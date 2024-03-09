@@ -42,7 +42,7 @@ export default function AllProducts() {
   return (
     <div className="allProducts--Outlet--wrapper">
       <div className="product--section--head">
-        <span>Product &nbsp; &lt; &nbsp;</span><span id="listing--category--heading"></span>
+        <span>Product &nbsp; &lt; &nbsp;</span><span id="listing--category--heading">allProducts</span>
         <select onChange={handlePriceSelect} name="prices" id="prices" className="select--price">
           <option value="">Default</option>
           <option value="low-to-high">Price (low-to-high)</option>
