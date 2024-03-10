@@ -1,6 +1,7 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { useOutletContext } from "react-router-dom";
+import { MdExpandMore } from "react-icons/md";
 
 export default function AllProducts() {
 
@@ -39,9 +40,16 @@ export default function AllProducts() {
     </div>
   ));
 
+
+  function handleCategoryButtonClick(){
+    const queriedCategoriesWrapper = document.querySelector('.queried--categories--wrapper')
+    queriedCategoriesWrapper.classList.toggle('active')
+  }
+
   return (
     <div className="allProducts--Outlet--wrapper">
       <div className="product--section--head">
+        <div className="category--button" onClick={handleCategoryButtonClick}>Categories <MdExpandMore /></div>
         <span>Product &nbsp; &lt; &nbsp;</span><span id="listing--category--heading">allProducts</span>
         <select onChange={handlePriceSelect} name="prices" id="prices" className="select--price">
           <option value="">Default</option>
