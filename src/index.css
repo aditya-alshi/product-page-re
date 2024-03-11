@@ -46,7 +46,9 @@ html{
     align-items: center;
 }
 
-.header--wrapper .header--other--section > *{
+.header--wrapper .header--other--section .header--icons, 
+.header--wrapper .header--other--section .header--login,
+.header--wrapper .header--other--section .heading--product{
     cursor: pointer;
 }
 
@@ -296,9 +298,9 @@ form.appear{
     display: block;
     position: absolute;
     z-index: 1001;
-    top: 30%;left: 40%;
+    top: 30%;right: 35%;left: 35%;
     background-color: white;
-    width: 40rem;
+    /* width: 40rem; */
 }
 
 form .close--button{
@@ -366,7 +368,7 @@ form .form--message{
     }
 
     main.main--wrapper{
-        width: 100%;
+        width: 95%;
     }
 
     .main--wrapper .categories--wrapper{
@@ -394,4 +396,18 @@ form .form--message{
         grid-template-columns: repeat(auto-fill, minmax(auto, 49rem));
     }
 
+    
+}
+
+
+@media (max-width: 1024px){
+    form.appear{
+        top: 30%;right: 25%;left: 25%;
+    }
+}
+
+@media (max-width: 550px){
+    form.appear{
+        top: 30%;right: 5%;left: 5%;
+    }
 }

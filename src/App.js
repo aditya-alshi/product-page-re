@@ -98,13 +98,13 @@ export default function App() {
               type="text"
               placeholder="Search..."
             />
-            <CiSearch className="search--icon" />
+            <CiSearch className="search--icon header--icons" />
           </div>
           <div className="header--elements heading--product">Products</div>
           <FaUser className="header--elements header--icons icon--login" />
           <div className="header--elements header--login" onClick={handleLoginClick}>Login</div>
           <div className="cart--icon">
-            <IoCartOutline className=" header--elements header--icons icon--cart" />
+            <IoCartOutline onClick={handleLoginClick} className=" header--elements header--icons icon--cart" />
             <div className="cart--count--absolute">1</div>
           </div>
         </div>
