@@ -46,6 +46,10 @@ html{
     align-items: center;
 }
 
+.header--wrapper .header--other--section > *{
+    cursor: pointer;
+}
+
 .header--wrapper .header--elements{
     margin-left: 3rem;
 }
@@ -265,6 +269,55 @@ div.product--section--head{
 
 select{
     /* appearance: none; */
+}
+
+.transparent--background{
+    display: none;
+}
+
+.transparent--background.appear{
+    position: fixed;
+    top: 0;bottom: 0;right: 0;left: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.62);
+    text-align: center;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
+form{
+    display: none;
+}
+
+form.appear{
+    display: block;
+    position: absolute;
+    z-index: 1001;
+    top: 30%;left: 40%;
+    background-color: white;
+    width: 40rem;
+}
+
+form .close--button{
+    position: relative;
+    top: 1%;left:95%;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+form .login--form--elements{
+    display: block;
+    width: 80%;
+    margin: auto;
+    margin-top: 0.5rem;
+    padding: 1rem;
+}
+
+form .form--message{
+    margin:1.2rem auto;
 }
 
 

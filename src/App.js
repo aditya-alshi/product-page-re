@@ -33,6 +33,8 @@ export default function App() {
   function handleCategoryClick(event) {
     // send the category innerText to dynamic string in AllProducts span with id #listing--category--heading
 
+    
+
     const queriedCategoriesWrapper = document.querySelector('.queried--categories--wrapper')
     queriedCategoriesWrapper.classList.toggle('active')
 
@@ -80,6 +82,11 @@ export default function App() {
     }
   }
 
+  function handleLoginClick(){
+    document.querySelector('.transparent--background').classList.toggle('appear')
+    document.querySelector('#login--form').classList.toggle('appear')
+    }
+
   return (
     <div className="app--wrapper">
       <header className="header--wrapper">
@@ -95,13 +102,14 @@ export default function App() {
           </div>
           <div className="header--elements heading--product">Products</div>
           <FaUser className="header--elements header--icons icon--login" />
-          <div className="header--elements">Login</div>
+          <div className="header--elements header--login" onClick={handleLoginClick}>Login</div>
           <div className="cart--icon">
             <IoCartOutline className=" header--elements header--icons icon--cart" />
             <div className="cart--count--absolute">1</div>
           </div>
         </div>
       </header>
+      
       <main className="main--wrapper">
         <aside className="categories--wrapper">
           <p className="categories--title">Categoies</p>
@@ -501,6 +509,16 @@ export default function App() {
           />
         </div>
       </main>
+      <div className="transparent--background" onClick={handleLoginClick}>
+      </div>
+        <form id="login--form" action="">
+          <div className="close--button" onClick={handleLoginClick}>×</div>
+          <h1>Login</h1>
+          <input className="login--form--elements" type="email" placeholder="Enter Email" />
+          <input className="login--form--elements" type="password" placeholder="Enter Password"/>
+          <button type="button" className="login--form--elements">Submit</button>
+          <div className="form--message">No Account? <span className="register--link">Register</span></div>
+        </form>
     </div>
   );
 }

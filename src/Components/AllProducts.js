@@ -51,6 +51,7 @@ export default function AllProducts() {
       <div className="product--section--head">
         <div className="category--button" onClick={handleCategoryButtonClick}>Categories <MdExpandMore /></div>
         <span>Product &nbsp; &lt; &nbsp;</span><span id="listing--category--heading">allProducts</span>
+        
         <select onChange={handlePriceSelect} name="prices" id="prices" className="select--price">
           <option value="">Default</option>
           <option value="low-to-high">Price (low-to-high)</option>
