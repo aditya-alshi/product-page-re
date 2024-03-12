@@ -24,7 +24,7 @@ export const cartReducer = (cart, action)=>{
             // notice the inequality operator != is not !== which is strict inequality. 
             // It's because the Id attribute passed to cartProduct is a string.
             // filterout taking a copy and returns a brandnew cart array to re-render.
-            return [...cart].filter(item=>item.id != action.id)
+            return [...cart].filter(item=>item.id !== action.id)
 
         }
 

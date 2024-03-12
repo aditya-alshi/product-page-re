@@ -29,8 +29,9 @@ export default function App() {
   // dispatch with that clickedProduct to the reducer function. 
   // note: needs refactoring 
   function addProducts(event){
-    const clickedProductId = event.target.getAttribute('id');
-    const [clickedProduct] = products.filter(product => product.id == clickedProductId)
+    const clickedProductId = parseInt(event.target.getAttribute('id'));
+    console.log(typeof(clickedProductId));
+    const [clickedProduct] = products.filter(product => product.id === clickedProductId)
     dispatch({type: "add", clickedProduct})
   }
   
@@ -43,7 +44,7 @@ export default function App() {
   // dispatch accepts the 'cartProductId'
   // this function and 
   function deleteProducts(event){
-    const cartProductId = event.target.getAttribute('id');
+    const cartProductId = parseInt(event.target.getAttribute('id'));
     dispatch({
       type:"delete",
       id: cartProductId
