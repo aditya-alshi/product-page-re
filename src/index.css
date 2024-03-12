@@ -102,7 +102,6 @@ html{
 }
 
 
-/*main--------------------------------------------*/
 
 .app--wrapper{
     
@@ -110,6 +109,61 @@ html{
     overflow-y: auto;
 }
 
+/* Cart------------------------------------------------------ */
+.cart--transparent--background{
+    display: none;
+}
+.cart--transparent--background.appear{
+    position: absolute;
+    z-index: 1001;
+    top: 0;right: 0;bottom: 0;left: 0;
+    background-color: rgba(128,128,128,0);
+    display: block;
+}
+
+.cart--section{
+    display: none;
+}
+
+.cart--section.appear{
+    overflow-y: auto;
+    outline: 0.1rem solid black;
+    position: absolute;
+    z-index: 1002;
+    background-color: white;
+    box-shadow: -0.5rem 0.5rem 0.6rem gray;
+    top: 10%;left: 75%;right: 1%;
+    max-height: 50rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.cart--item--wrapper{
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.1rem solid black;
+    height: 10rem;
+}
+
+.cart--item--wrapper .cart--item--thumbnail{
+    max-width: 10rem;max-height: 9.5rem;
+}
+
+.cart--section .cart--total{
+    margin-top: 2rem;
+    padding: 2rem 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+
+
+/*main--------------------------------------------*/
 main.main--wrapper{
     position: relative;
     width: 82.5%;

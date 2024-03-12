@@ -1,11 +1,16 @@
 import React from "react";
-import { IoCartOutline } from "react-icons/io5";
+import AddToCartButton from "./AddToCartButton";
+
 import { useOutletContext } from "react-router-dom";
 import { MdExpandMore } from "react-icons/md";
 
+
+// Maps the products array and renderes it in the products section of main
 export default function AllProducts() {
 
-  const [products, handlePriceSelect] = useOutletContext()
+  // the addProducts function is comming from the App.js and is responsible for adding products to the cart--section
+  
+  const [products, handlePriceSelect, addProducts] = useOutletContext()
 
   const renderProducts = products.map((product) => (
     <div key={product.id} className="product--item--wrapper">
@@ -17,7 +22,7 @@ export default function AllProducts() {
         />
       </div>
       <div className="product--item--details">
-        <p className="product--detail--i product--category">
+        <p className="product--detail--i product--category" onClick={addProducts}>
           {product.category}
         </p>
         <p className="product--detail--i product--title">{product.title}</p>
@@ -32,10 +37,7 @@ export default function AllProducts() {
           <s>{product.price}</s>
           <span>&nbsp; &nbsp;-{product.discountPercentage}%</span>
         </p>
-        <button className="product--detail--i" type="button">
-          <IoCartOutline />
-          Add to Cart
-        </button>
+        <AddToCartButton id={product.id} addProducts={addProducts}/>
       </div>
     </div>
   ));
